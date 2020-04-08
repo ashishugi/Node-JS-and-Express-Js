@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About</title>
+</head>
+<body>
+    <h1>Welcome to About .EJS page </h1>
+    <p>
+        <h4> sum of the entered values is <%= sum %></h4>
+
+    </p>
+    <h3> Login form</h3>
+    <form  method="POST">
+        username : <input type="text" name="username" required/> <!--we already kow that it is mandatory to define the
+        the name so that it passes to the url and we can access it with the same name--> 
+        Password : <input type="password" name="password" required/>
+        <input type="submit"/>  
+    </form>
+</body>
+</html>
