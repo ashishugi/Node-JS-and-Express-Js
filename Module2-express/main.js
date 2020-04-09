@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-app.use(express.static("public"));
+app.use(express.static("public")); // here public is the folder inside which the file static file is present
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/public/index.html'); // / indicate root so from root one must go to index.html 
     // remember to use this app.use(express.static("public"));

@@ -13,7 +13,8 @@ app.get('/about/:a?.:b?',(req,res)=>{ // this is defined for to handle the page 
     // Please keep in mind that if we are taking the parameters from URL then it is type of ******REQUEST******
 }); // here by default parameter is in string so to convert it into integer we use parse.Int()
 
-/************** By post ***********************/
+/******************************* By Post *****************************/
+
 // here we use req.body.name instead of req.params.name  as here the data comes inside the body not as parameters
 //  install body parser package - > npm install body-parser
 // app.get('/about/:a-:b',(req,res)=>{

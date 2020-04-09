@@ -1,0 +1,30 @@
+        /*   here we would not use const but we will be using var as mongo db do not ES6 */ 
+        here Collection is refereed as Table in Mysql
+installing Mongo db
+    npm install mongoose    
+including mongo to our file
+    const mongo = require('mongoose);
+Making the schema of the database
+    var student = new mongo.Schema({  // building the schema - > schema means defining the structure of the data base
+        name:String,
+        studentid:Number,
+        college:String,
+        email:String
+    });
+to work with the student Schema we must create a model so that we can work with it
+    schemas are like the the table name in Mysql
+    while we also create a model of that schema , it is similar to defining the a variable for using that table
+    also their is _id by default added to our each entry  - >we can replace it with our _id also by defining it into our schemas
+    var studentmodel = mongoose.model('student',studentSchema);
+    var student = new studentmodel({id:1,name:"rishi",studentid:12,college:"UIT",email:"ash@gmail.com"})
+
+
+
+
+// model is type of class 
+// then we create the object of that class ( studentmodel) and then add values inside the class
+
+
+NOw install mongodb to your system
+    Mongodb server -> this will create the environment of the data base but we will not able to see the database
+    MOngodb compass - > GUI interface of Mongo db
