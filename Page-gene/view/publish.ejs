@@ -7,51 +7,58 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
  
     <title>Document</title>
+    <style>
+                pre .str, code .str { color: #65B042; } /* string  - green */
+                pre .kwd, code .kwd { color: #E28964; } /* keyword - dark pink */
+                pre .com, code .com { color: #AEAEAE; font-style: italic; } /* comment - gray */
+                pre .typ, code .typ { color: #89bdff; } /* type - light blue */
+                pre .lit, code .lit { color: #3387CC; } /* literal - blue */
+                pre .pun, code .pun { color: #fff; } /* punctuation - white */
+                pre .pln, code .pln { color: #fff; } /* plaintext - white */
+                pre .tag, code .tag { color: #89bdff; } /* html/xml tag    - light blue */
+                pre .atn, code .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
+                pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
+                pre .dec, code .dec { color: #3387CC; } /* decimal - blue */
+                
+                pre.prettyprint, code.prettyprint {
+                	background-color: #000;
+                	border-radius: 8px;
+                }
+                
+                pre.prettyprint {
+                	width: 95%;
+                	margin: 1em auto;
+                	padding: 1em;
+                	white-space: pre-wrap;
+                }
+                
+                
+                /* Specify class=linenums on a pre to get line numbering */
+                ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE; } /* IE indents via margin-left */
+                li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+                /* Alternate shading for lines */
+                li.L1,li.L3,li.L5,li.L7,li.L9 { }
+                
+                @media print {
+                  pre .str, code .str { color: #060; }
+                  pre .kwd, code .kwd { color: #006; font-weight: bold; }
+                  pre .com, code .com { color: #600; font-style: italic; }
+                  pre .typ, code .typ { color: #404; font-weight: bold; }
+                  pre .lit, code .lit { color: #044; }
+                  pre .pun, code .pun { color: #440; }
+                  pre .pln, code .pln { color: #000; }
+                  pre .tag, code .tag { color: #006; font-weight: bold; }
+                  pre .atn, code .atn { color: #404; }
+                  pre .atv, code .atv { color: #060; }
+                }
+    </style>
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-                <a class="navbar-brand " href="#" style="color: floralwhite;">codeX</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-            
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
-                </div>
-              </nav>
-              <br/>
-              <br/>
+        <%- include('navMain') %> <!-- the correct way to include one page into another page-->
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-12">
-                <h2 style="color: rgb(185, 159, 12)"><strong> <%= heading %> </strong></h2>
+                <h2 style="color: rgb(185, 159, 12)"><strong> <%= record.heading %> </strong></h2>
                 <hr>
         </div>
     </div>
@@ -63,7 +70,7 @@
     <br/>
     <div class="row">
             <div class="col-sm-12 col-md-12">
-                    <p style="font-family: 'Lucida Sans';"> <%= description %></p>
+                    <p style="font-family: 'Lucida Sans';"> <%= record.description %></p>
                     <br/>
             </div>
     </div>
@@ -73,7 +80,7 @@
                     <h5 ><strong>Input</strong></h5>
                     <br/>
                     <p >
-                            <%= input %>
+                            <%= record.input %>
                     </p>
             </div>
     </div>
@@ -84,7 +91,7 @@
                     <h5 ><strong>Output</strong></h5>
                     <br/>
                     <p >
-                            <%= output %>
+                            <%= record.output %>
                     </p>
             </div>
     </div>
@@ -95,7 +102,7 @@
                     <h5 ><strong>Sample Input</strong></h5>
                     <br/>
                     <p >
-                            <%= sampleinput %>
+                            <%= record.sampleinput %>
                     </p>
             </div>
     </div>
@@ -105,30 +112,33 @@
                     <h5 ><strong>Sample Output</strong></h5>
                     <br/>
                     <p >
-                        <%= sampleoutput %>
+                        <%= record.sampleoutput %>
                     </p>
             </div>
     </div>
 
     <br/>
-    <div class="row" style="height: 200px; width:70%;">
-            <div class="col-md-0">
-                
-            </div>
-            <div class="col-sm-12 col-md-12" style="align-content: center;">
+    <div class="row" >
+            <div class="col-sm-12 col-md-8" style="align-content: center;">
                     <h5 style="color: indigo;"><strong>Code</strong></h5>
                     <br/>
 
-                  <pre class="prettyprint" style="background-color: rgb(248, 245, 241) ;  text-align: center; border-radius: 20px; color: white;">
-                        <div style="margin-top: 5px; margin-bottom: 5px;">
-                                <%= code %>
+                  <pre class="prettyprint"  style="border-radius: 20px; color: white;">
+                        <div >
+                                 <%= record.code %>
+                                 <br/>
+                                 <br/>
+             
                         </div>
-                        
                   </pre>
             </div>
-            <div class="col-md-0">
-                
-            </div>
+            <div class="col-sm-12 col-md-4">
+                        <h5 style="color: indigo;"><strong>Explanation</strong></h5>
+                        <br/>
+                    <%= record.explanation %>
+                    <br/>
+                    <br/>
+            </div> 
     </div>
 </div>
 
@@ -137,7 +147,7 @@
 
 
 
-
+<%- include('footer') %>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

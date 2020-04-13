@@ -126,7 +126,9 @@ const server = http.createServer(function(req,res){ // 200  is used to successfu
 
 /************************** File system module **************/
 const fs  = require('fs'); // here fs is the in build file system
-fs.readFile(__dirname+"/hello.txt","utf8",(err,data)=>{ // we have to add the file path here ,then the format of the file ,function () with error argument and then data -> if error then it will throw the error else it will print the file data
+fs.readFile(__dirname+"/hello.txt","utf8",(err,data)=>{ // we have to add the file path here ,
+    //then the format of the file ,function () with error argument 
+    //and then data -> if error then it will throw the error else it will print the file data
     if(err) throw err;
     console.log(data);
 });

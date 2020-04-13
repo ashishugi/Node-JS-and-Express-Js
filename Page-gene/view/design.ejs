@@ -11,45 +11,8 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand " href="#" style="color: floralwhite;">codeX</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-  <br/>
-  <br/>
+  <%- include('navMain') %> <!-- the correct way to include one page into another page-->
+  
   <h3 style="text-align: center; color:blue;">Build your own questions and get it post in Our Website</h3>
   <br/>
   <div class="container">
@@ -61,7 +24,7 @@
           <label style="text-align: center;">Write Heading of the questions</label>
         </div>
         <div class="col-md-12">
-          <input type="text" class="form-control" name="heading" size="100%" required/>
+          <input type="text" class="form-control" name="heading" size="100%" placeholder="Max length 8 words" required/>
         </div>
         <br/>
 
@@ -90,14 +53,14 @@
             <label>Output</label>
         </div>
         <div class="col-md-12">
-            <textarea id="textarea" class="form-control" name="Output" rows="3" cols="50%" required>
+            <textarea id="textarea" class="form-control" name="output" rows="3" cols="50%" required>
             </textarea>
         </div>
         <br/>
 
 
        <div class="row">
-          <div class="col-sm-12 col-md-6">
+          <div class="col-sm-12 col-md-5">
               <label>Sample Input</label>
               <textarea  name="sampleinput" class="form-control" rows="3" cols="30%" required>
               </textarea>
@@ -105,12 +68,23 @@
 
 
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-5">
               <label>Sample Output</label>
               <textarea  name="sampleoutput" class="form-control" rows="3" cols="30%" required>
               </textarea>
             </div>
        </div>
+       <br/>
+
+
+       <div class="col-md-12">
+         <label>Explanation</label>
+      </div>
+      <div class="col-md-12">
+          <textarea id="textarea" class="form-control" name="explanation" rows="3" cols="100%" >
+         </textarea>
+      </div>
+      <br/>
 
 
         <div class="col-md-12">
@@ -118,7 +92,7 @@
         </div>
        <div class="row">
         <div class="col-sm-12 col-md-6">
-          <textarea  name="code" onchange="change()"  class="form-control" id="code" rows="10" cols="50%" required/>
+          <textarea  name="code" onchange="change()" class="form-control" id="code" rows="10" cols="50%" required/>
           </textarea>
         </div>
 
@@ -142,6 +116,7 @@
    <br/>
  </footer>
  <script>
+   // this script is for the code visualization 
     function change(){
       var x = document.getElementById('code').value;
       document.getElementById('paste').innerHTML = x;
