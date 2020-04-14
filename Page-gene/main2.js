@@ -5,7 +5,7 @@ const bodyParser=require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 var mongoose = require('mongoose');
-var path='mongodb://user:Ashish123@cluster0-shard-00-00-iev0v.mongodb.net:27017,cluster0-shard-00-01-iev0v.mongodb.net:27017,cluster0-shard-00-02-iev0v.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority';
+var path='mongodb://user:paasssssss@cluster0-shard-00-00-iev0v.mongodb.net:27017,cluster0-shard-00-01-iev0v.mongodb.net:27017,cluster0-shard-00-02-iev0v.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority';
 //var path='mongodb://localhost:27017/problems';
 mongoose.connect(path, {useNewUrlParser: true, useUnifiedTopology: true} , function(err){
     if(err) throw err;
@@ -26,7 +26,7 @@ var problemsSchema = new mongoose.Schema({
     code:String
 });
 //mongodb://localhost:27017/problems
-//mongodb://user:Ashish123@cluster0-shard-00-00-iev0v.mongodb.net:27017,cluster0-shard-00-01-iev0v.mongodb.net:27017,cluster0-shard-00-02-iev0v.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority
+//mongodb://user:passsssss@cluster0-shard-00-00-iev0v.mongodb.net:27017,cluster0-shard-00-01-iev0v.mongodb.net:27017,cluster0-shard-00-02-iev0v.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority
 var problemModel = require('./schema');
 var problem = problemModel.find({});
 app.set('view engine','ejs');
@@ -44,6 +44,9 @@ app.get('/nav',(req,res)=>{
 //     res.render('problems');
 // });
 app.get('/',(req,res)=>{
+    res.render('index');
+});
+app.get('/index',(req,res)=>{
     res.render('index');
 });
 
