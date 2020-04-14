@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 app.set('view engine','ejs');
 app.set('views','./');
 //mongodb://localhost:27017/student
-//mongodb+srv://test:Ashish123@cluster0-iev0v.mongodb.net/test?retryWrites=true&w=majority
+//mongodb+srv://test:passsssss@cluster0-iev0v.mongodb.net/test?retryWrites=true&w=majority
 mongoose.connect('mongodb://localhost:27017/student', {useNewUrlParser: true, useUnifiedTopology: true});
 var conn=mongoose.connection;
 
